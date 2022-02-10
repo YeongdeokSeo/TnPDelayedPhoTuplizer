@@ -4,6 +4,7 @@
 <use name="FWCore/ParameterSet"/>
 <use name="DataFormats/PatCandidates"/>
 <use name="PhysicsTools/UtilAlgos"/>
+<use name="PhysicsTools/TagAndProbe"/>
 <use name="RecoEgamma/EgammaTools"/>
 <use name="EgammaAnalysis/ElectronTools"/>
 <use name="RecoEcal/EgammaCoreTools"/>

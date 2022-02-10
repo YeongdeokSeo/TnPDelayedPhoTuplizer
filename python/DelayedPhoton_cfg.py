@@ -8,10 +8,12 @@ process.load("Configuration.EventContent.EventContent_cff")
 
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
-        '/store/data/Run2018B/EGamma/MINIAOD/PromptReco-v1/000/317/696/00000/FC9C403C-9970-E811-90FE-FA163E1FAB71.root'
+        #"file:MyOutputFile.root"
+        #'/store/data/Run2018B/EGamma/MINIAOD/PromptReco-v1/000/317/696/00000/FC9C403C-9970-E811-90FE-FA163E1FAB71.root'
+        '/store/data/Run2018B/EGamma/MINIAOD/17Sep2018-v1/60000/FC233A84-73D8-054E-B774-CE80543407D8.root'                
     )
                                                                                             )
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10) )
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 #TFileService for output 
@@ -28,7 +30,8 @@ process.load("Configuration.StandardSequences.MagneticField_cff")
 #------ Declare the correct global tag ------#
 
 #Global Tag for Run2015D
-process.GlobalTag.globaltag = '101X_dataRun2_Prompt_v11'
+#process.GlobalTag.globaltag = '101X_dataRun2_Prompt_v11'
+process.GlobalTag.globaltag = '102X_dataRun2_v12'
 
 process.load('RecoMET.METFilters.BadChargedCandidateFilter_cfi')
 process.BadChargedCandidateFilter.muons = cms.InputTag("slimmedMuons")

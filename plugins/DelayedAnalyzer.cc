@@ -179,15 +179,10 @@ DelayedAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
    iEvent.getByToken(ebRecHitsToken_,ebRecHits);
    iEvent.getByToken(eeRecHitsToken_,eeRecHits);
 
-    
-   noZS::EcalClusterLazyTools *lazyToolnoZS = new noZS::EcalClusterLazyTools(iEvent, iSetup, ebRecHitsToken_, eeRecHitsToken_);
-
-
    for(unsigned int ind_photons = 0; ind_photons<photons.size();ind_photons++)
    {
        for (const pat::Photon &pho : *photons[ind_photons]) 
        {
-         std::vector<float> vCov = lazyToolnoZS->localCovariances( *(pho.superCluster()->seed()) );
          const auto recHits = (pho.isEB() ? ebRecHits.product() : eeRecHits.product());
          if(recHits->size() > 0) 
          {
